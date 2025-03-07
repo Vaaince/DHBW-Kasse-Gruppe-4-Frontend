@@ -1,4 +1,4 @@
-import { useMutation, useQuery } from 'react-query';
+import { useMutation } from 'react-query';
 import '../App.css'
 import { useState } from 'react';
 
@@ -22,13 +22,15 @@ function BrandAdmin() {
   const [legalForm, setLegalForm] = useState('');
 
   const url = `http://localhost:8080/brands`;
+
   const mutation : any = useMutation<any, Error, FormData>(async (formData) => {
     const requestOptions = {
       method: 'POST',
-      header: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData)
     };
-    fetch(url, requestOptions).then((res) => res.json())
+    const response = await fetch(url, requestOptions);
+    return response.json();
   });
 
   const handleSubmit = () => {
