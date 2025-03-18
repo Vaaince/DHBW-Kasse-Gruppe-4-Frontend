@@ -5,8 +5,14 @@ import { Card, Grid2 } from '@mui/material';
 function Brand() {
 
   const url = `http://localhost:8080/brands`;
-  const {isLoading, isError, data} : any = useQuery("Brands", () => 
-    fetch(url).then((res) => res.json())
+  const { isLoading, isError, data } = useQuery(
+    "Brands",
+    () => fetch(url).then((res) => res.json()),
+    {
+      staleTime: 300000,       
+      cacheTime: 600000,      
+      refetchOnWindowFocus: false 
+    }
   );
 
   if(isLoading) {
