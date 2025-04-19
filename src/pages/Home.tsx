@@ -1,5 +1,15 @@
 import '../App.css'
-import React, { useEffect, useState} from 'react'
+import React, {useEffect, useState} from 'react'
+
+const warenListe = [
+  { id: 1, name: 'Äpfel', preis: 2.99, anzahl: 5 },
+  { id: 2, name: 'Bananen', preis: 1.79, anzahl: 3 },
+  { id: 3, name: 'Käse', preis: 4.99, anzahl: 2 },
+  { id: 4, name: 'Brot', preis: 1.49, anzahl: 1 },
+  { id: 4, name: 'Brot', preis: 1.49, anzahl: 1 },
+  { id: 4, name: 'Brot', preis: 1.49, anzahl: 1 },
+  { id: 4, name: 'Brot', preis: 1.49, anzahl: 1 },
+]
 
 function Home() {
 
@@ -28,8 +38,20 @@ function Home() {
       <header className='header'>
         <div className='logoContainer'> 
         </div>
-        <p className='datumUhrzeit'>Supermarktkasse {datumUhrzeit}</p>
+        <h1 className='datumUhrzeit'>Supermarktkasse {datumUhrzeit}</h1>
       </header>
+      <body>
+        <div className='warenkorb'>
+          <h2>Warenkorb</h2>
+          <div className="waren-liste">
+            {warenListe.map((item) => (
+              <div className="waren-item" key={item.id}>
+                <p className="waren-name">{item.name} €{item.preis.toFixed(2)} Menge: {item.anzahl}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </body>
     </>
   )
 }
