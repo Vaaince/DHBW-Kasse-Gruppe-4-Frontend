@@ -38,7 +38,7 @@ function Home() {
       <header className='header'>
         <div className='logoContainer'> 
         </div>
-        <h1 className='datumUhrzeit'>Supermarktkasse {datumUhrzeit}</h1>
+        <h1 className='datumUhrzeit'>Supermarktkasse! {datumUhrzeit}</h1>
       </header>
       <body>
         <div className='warenkorb'>
