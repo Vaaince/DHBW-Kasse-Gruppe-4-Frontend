@@ -3,7 +3,7 @@ import '../App.css'
 function Home() {
   return (
     <>
-      <h1>Willkommen im Supermarkt!</h1>
+      <h1>Willkommen im Supermarkt von Gruppe 4!</h1>
     </>
   )
 }
