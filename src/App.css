@@ -1,7 +1,7 @@
 #root {
   max-width: auto;
   margin: 0 auto;
-  padding: 0rem;
+  padding: 0;
   text-align: center;
 }
 
@@ -42,18 +42,78 @@
 }
 
 .header {
-text-align: top;
-background-color: coral;
-padding: 1px;
-margin: 0;
-color: white;
-font-size: large;
+  text-align: top;
+  background-color: coral;
+  padding: 1px;
+  margin: 0;
+  color: white;
+  font-size: large;
 }
 
 .warenkorb {
-background-color: darkgray;
-border-radius: 15px;
-width: 25%;
-align-self: center;
-margin: 1%;
+  background-color: white;
+  border-radius: 15px;
+  width: 25%;
+  align-self: center;
+  margin: 1%;
+  color: black;
+}
+
+/* Wrapper für die Tabelle */
+.waren-tabelle-wrapper {
+  height: 60vh;
+  overflow-y: auto;
+  margin: 0.5%;
+  width: 35%;
+  background-color: white;
+  border-radius: 10px;
+}
+
+/* Tabelle */
+.waren-tabelle {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+/* Sticky Header */
+.waren-tabelle thead th {
+  position: sticky;
+  top: 0;
+  background-color: #f2f2f2;
+  z-index: 2;
+}
+
+/* Sticky Footer */
+.waren-tabelle tfoot td {
+  position: sticky;
+  bottom: 0;
+  background-color: #e0e0e0;
+  font-weight: bold;
+  z-index: 1;
+}
+
+/* Zellen */
+.waren-tabelle th,
+.waren-tabelle td {
+  border: 1px solid #ddd;
+  height: 40px;
+  padding: 0 8px;
+  background-color: white;
+  text-align: left;
+  color: black;
+}
+
+/* Hover-Effekt */
+.waren-tabelle tbody tr:hover td {
+  background-color: blue;
+  color: white;
+}
+
+.itemPreis {
+  text-align: right;
+}
+
+.itemAnzahl {
+  text-align: center;
 }
