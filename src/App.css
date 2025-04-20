@@ -43,7 +43,7 @@
 
 .header {
   text-align: top;
-  background-color: coral;
+  background-color: #94C071;
   padding: 1px;
   margin: 0;
   color: white;
@@ -66,7 +66,7 @@
   margin: 0.5%;
   width: 35%;
   background-color: white;
-  border-radius: 10px;
+  border-radius: 1%;
 }
 
 /* Tabelle */
@@ -96,7 +96,7 @@
 /* Zellen */
 .waren-tabelle th,
 .waren-tabelle td {
-  border: 1px solid #ddd;
+  border: 1px solid rgb(81, 79, 79);
   height: 40px;
   padding: 0 8px;
   background-color: white;
@@ -106,7 +106,7 @@
 
 /* Hover-Effekt */
 .waren-tabelle tbody tr:hover td {
-  background-color: blue;
+  background-color: #839CC0;
   color: white;
 }
 
