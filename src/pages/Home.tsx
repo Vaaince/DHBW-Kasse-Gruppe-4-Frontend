@@ -5,7 +5,14 @@ const warenListe = [
   { id: 1, name: 'Äpfel', preis: 2.99, anzahl: 5 },
   { id: 2, name: 'Bananen', preis: 1.79, anzahl: 3 },
   { id: 3, name: 'Käse', preis: 4.99, anzahl: 2 },
- /* { id: 4, name: 'Brot', preis: 1.49, anzahl: 1 },
+  { id: 4, name: 'Brot', preis: 1.49, anzahl: 1 },
+  { id: 5, name: 'Katzenfutter', preis: 10.00, anzahl: 1 },
+  { id: 6, name: 'Flammenwerfer', preis: 100.49, anzahl: 4 },
+  { id: 7, name: 'Lederjacke', preis: 1000.49, anzahl: 1 },
+  { id: 1, name: 'Äpfel', preis: 2.99, anzahl: 5 },
+  { id: 2, name: 'Bananen', preis: 1.79, anzahl: 3 },
+  { id: 3, name: 'Käse', preis: 4.99, anzahl: 2 },
+  { id: 4, name: 'Brot', preis: 1.49, anzahl: 1 },
   { id: 5, name: 'Katzenfutter', preis: 10.00, anzahl: 1 },
   { id: 6, name: 'Flammenwerfer', preis: 100.49, anzahl: 4 },
   { id: 7, name: 'Lederjacke', preis: 1000.49, anzahl: 1 },
@@ -23,13 +30,6 @@ const warenListe = [
   { id: 5, name: 'Katzenfutter', preis: 10.00, anzahl: 1 },
   { id: 6, name: 'Flammenwerfer', preis: 100.49, anzahl: 4 },
   { id: 7, name: 'Lederjacke', preis: 1000.49, anzahl: 1 },
- /* { id: 1, name: 'Äpfel', preis: 2.99, anzahl: 5 },
-  { id: 2, name: 'Bananen', preis: 1.79, anzahl: 3 },
-  { id: 3, name: 'Käse', preis: 4.99, anzahl: 2 },
-  { id: 4, name: 'Brot', preis: 1.49, anzahl: 1 },
-  { id: 5, name: 'Katzenfutter', preis: 10.00, anzahl: 1 },
-  { id: 6, name: 'Flammenwerfer', preis: 100.49, anzahl: 4 },
-  { id: 7, name: 'Lederjacke', preis: 1000.49, anzahl: 1 },
   { id: 1, name: 'Äpfel', preis: 2.99, anzahl: 5 },
   { id: 2, name: 'Bananen', preis: 1.79, anzahl: 3 },
   { id: 3, name: 'Käse', preis: 4.99, anzahl: 2 },
@@ -37,7 +37,7 @@ const warenListe = [
   { id: 5, name: 'Katzenfutter', preis: 10.00, anzahl: 1 },
   { id: 6, name: 'Flammenwerfer', preis: 100.49, anzahl: 4 },
   { id: 7, name: 'Lederjacke', preis: 1000.49, anzahl: 1 },
-  { id: 7, name: 'Lederjacke', preis: 1000.49, anzahl: 1 },*/
+  { id: 7, name: 'Lederjacke', preis: 1000.49, anzahl: 1 },
 ]
 
 const gesamtBetrag = warenListe.reduce((summe, item) => {
@@ -82,22 +82,13 @@ function Home() {
   return (
     <>
       <header className='header'>
-        <h1 className='datumUhrzeit'>Supermarktkasse! {datumUhrzeit}</h1>
-      </header>
-      {/*
-      <div className='warenkorb'>
-        <h2>Warenkorb</h2>
-        <div className="waren-liste">
-          {warenListe.map((item, i) => (
-            <div className="waren-item" key={i}>
-              <p className="waren-name">
-                {item.name} €{item.preis.toFixed(2)} Menge: {item.anzahl}
-              </p>
-            </div>
-          ))}
-        </div>
+      <div className="logo-container">
+        <img src="/Logo.png"></img>    
       </div>
-      */}
+      <h1 className='titel'>Supermarktkasse</h1>
+        <h1 className='datumUhrzeit'>{datumUhrzeit}</h1>
+      </header>
+      <body>
       <div className='waren-tabelle-wrapper'>
         <table className="waren-tabelle">
           <thead>
@@ -132,6 +123,10 @@ function Home() {
           </tfoot>
         </table>
       </div>
+      <div className='knopf'>
+          <button className='bezahlung'>Bezahlen</button>
+      </div>
+      </body>
     </>
   )
 }
