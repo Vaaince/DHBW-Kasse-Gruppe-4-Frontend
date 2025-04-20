@@ -63,7 +63,7 @@
 
 .header {
   text-align: top;
-  background-color: #94C071;
+  background-color: #839CC0;
   padding: 1px;
   margin: 0;
   color: white;
@@ -78,7 +78,7 @@
   height: 60vh;
   overflow-y: auto;
   margin: 0.5%;
-  width: 35%;
+  width: 100%;
   background-color: white;
   border-radius: 1%;
 }
@@ -136,16 +136,106 @@
   border-radius: 20px;
     border: 1px solid grey;
     background-color: #e0e0e0;
-    font-size: 13px;
+    font-size: 19px;
     font-weight: bold;
     padding: 12px 45px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    transition: transform 80ms ease-in;
     cursor: pointer;
     color: black;
+    width: 50%;
+    height: 30%;
+
     
 }
 .bezahlung:hover {
   background-color: #839CC0;
+  border-color: grey;
+  color: white;
+}
+
+.knopf {
+  height: 25vh;
+  width: 100%;
+  margin: 0.5%;
+  overflow: hidden;
+  background-color: white;
+  border-radius: 1%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rechts {
+  width: 65%; /* 50% der Breite des Gesamt-Containers */
+  background-color: white;
+  padding: 20px;
+  overflow-y: auto;
+  color: white; 
+  display: flex;
+  align-items: top;
+  justify-content: center;
+
+}
+.links {
+  width: 35%; /* 50% der Breite des Gesamt-Containers */
+  background-color: white;
+  padding: 5px;
+  overflow-y: auto;
+}
+
+.gesamt {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.zahlungsArten {
+  background-color: white;
+  height: 40%;
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+  width: 80%;
+}
+
+.karte {
+  background-color: #e0e0e0;
+  border-color: grey;
+  width: 30%;
+  height: 100%;
+  font-size: x-large;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.karte:hover,.bar:hover,.punkte:hover {
+  background-color: #839CC0;
+  border-color: grey;
+  color: white;
+}
+
+.bar {
+  background-color: #e0e0e0;
+  border-color: grey;
+  width: 30%;
+  height: 100%;
+  font-size: x-large;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.punkte {
+  background-color: #e0e0e0;
+  border-color: grey;
+  width: 30%;
+  height: 100%;
+  font-size: x-large;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

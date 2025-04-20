@@ -89,6 +89,8 @@ function Home() {
         <h1 className='datumUhrzeit'>{datumUhrzeit}</h1>
       </header>
       <body>
+      <div className='gesamt'>
+      <div className='links'>
       <div className='waren-tabelle-wrapper'>
         <table className="waren-tabelle">
           <thead>
@@ -125,6 +127,15 @@ function Home() {
       </div>
       <div className='knopf'>
           <button className='bezahlung'>Bezahlen</button>
+      </div>
+      </div>
+      <div className='rechts'>
+       <div className='zahlungsArten'>
+        <button className='karte'>Kartenzahlung</button>
+        <button className='bar'>Barzahlung</button>
+        <button className='punkte'>Punktezahlung (Kundenkarte)</button>
+       </div>
+      </div>
       </div>
       </body>
     </>
