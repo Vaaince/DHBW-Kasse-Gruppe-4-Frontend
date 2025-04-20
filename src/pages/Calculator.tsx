@@ -3,14 +3,18 @@ import '../Calculator.css';
 
 const geldEinheiten = [100, 50, 20, 10, 5, 2, 1, 0.5, 0.2, 0.1, 0.05, 0.02, 0.01];
 
-function Calculator() {
+interface CalculatorProps {
+    betrag: number;
+}
+
+function Calculator({ betrag }: CalculatorProps) {
   const [zuZahlen, setZuZahlen] = useState<number>(0);
   const [gegeben, setGegeben] = useState<number>(0);
   const [rueckgeld, setRueckgeld] = useState<number>(0);
   const [wechselgeld, setWechselgeld] = useState<{ [key: number]: number }>({});
 
   const berechneRueckgeld = (gesamtGegeben: number) => {
-    const rueck = parseFloat((gesamtGegeben - zuZahlen).toFixed(2));
+    const rueck = parseFloat((gesamtGegeben - betrag).toFixed(2));
     setRueckgeld(rueck);
     const result: { [key: number]: number } = {};
     let rest = rueck;
@@ -43,16 +47,7 @@ function Calculator() {
       <h2>Kassen-Rechner</h2>
 
       <div className="eingabe">
-        <label>Zu zahlen (€):</label>
-        <input
-          type="number"
-          step="0.01"
-          value={zuZahlen}
-          onChange={(e) => {
-            setZuZahlen(parseFloat(e.target.value));
-            reset();
-          }}
-        />
+        <label>Zu zahlen (€): <strong>{ betrag.toFixed(2)}</strong></label>
       </div>
 
       <div className="gegeben-section">

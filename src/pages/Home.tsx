@@ -1,5 +1,7 @@
 import '../App.css'
+import './Calculator'
 import React, { useEffect, useState } from 'react'
+import Calculator from './Calculator'
 
 const warenListe = [
   { id: 1, name: 'Äpfel', preis: 2.99, anzahl: 5 },
@@ -7,7 +9,7 @@ const warenListe = [
   { id: 3, name: 'Käse', preis: 4.99, anzahl: 2 },
   { id: 4, name: 'Brot', preis: 1.49, anzahl: 1 },
   { id: 5, name: 'Katzenfutter', preis: 10.00, anzahl: 1 },
-  { id: 6, name: 'Flammenwerfer', preis: 100.49, anzahl: 4 },
+  /*{ id: 6, name: 'Flammenwerfer', preis: 100.49, anzahl: 4 },
   { id: 7, name: 'Lederjacke', preis: 1000.49, anzahl: 1 },
   { id: 1, name: 'Äpfel', preis: 2.99, anzahl: 5 },
   { id: 2, name: 'Bananen', preis: 1.79, anzahl: 3 },
@@ -37,7 +39,7 @@ const warenListe = [
   { id: 5, name: 'Katzenfutter', preis: 10.00, anzahl: 1 },
   { id: 6, name: 'Flammenwerfer', preis: 100.49, anzahl: 4 },
   { id: 7, name: 'Lederjacke', preis: 1000.49, anzahl: 1 },
-  { id: 7, name: 'Lederjacke', preis: 1000.49, anzahl: 1 },
+  { id: 7, name: 'Lederjacke', preis: 1000.49, anzahl: 1 },*/
 ]
 
 const gesamtBetrag = warenListe.reduce((summe, item) => {
@@ -177,9 +179,21 @@ function Home() {
                     <button className='closePopup' onClick={handleClosePopup}>Schließen</button>
                   </div>
                 )}
+        {zeigeBarInfo && (
+          <div className='karteInfo'>
+            <p>Bitte das erhaltene Bargeld eintragen.</p>
+            <button className='closePopup' onClick={handleClosePopup}>Schließen</button>
+          </div>
+        )}
+
        </div>
-      {!zeigeKartenInfo && (
+      {!zeigeKartenInfo && !zeigeBarInfo && (
        <button className='abbrechen' onClick={()=> setZeigeButtons(false)}>Abbrechen</button>
+      )}
+      {zeigeBarInfo && (
+        <div> 
+        <Calculator betrag={gesamtBetrag} />
+        </div>
       )}
        </div>
        )}
