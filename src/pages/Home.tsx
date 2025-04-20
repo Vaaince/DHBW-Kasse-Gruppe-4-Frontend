@@ -79,6 +79,15 @@ function Home() {
     second: '2-digit',
   })
 
+  const [zeigeButtons, setZeigeButtons] = useState(false);
+
+  const handleKlick = () => {
+    setZeigeButtons(prev => !prev); // Toggle Sichtbarkeit
+
+  };
+
+
+
   return (
     <>
       <header className='header'>
@@ -126,15 +135,17 @@ function Home() {
         </table>
       </div>
       <div className='knopf'>
-          <button className='bezahlung'>Bezahlen</button>
+          <button className='bezahlung' onClick={handleKlick}>Bezahlen</button>
       </div>
       </div>
       <div className='rechts'>
+        {zeigeButtons && (
        <div className='zahlungsArten'>
         <button className='karte'>Kartenzahlung</button>
         <button className='bar'>Barzahlung</button>
         <button className='punkte'>Punktezahlung (Kundenkarte)</button>
        </div>
+       )}
       </div>
       </div>
       </body>
