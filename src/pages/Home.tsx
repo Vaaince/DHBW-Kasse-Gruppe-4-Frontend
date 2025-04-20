@@ -86,6 +86,15 @@ function Home() {
 
   };
 
+  const [zeigeKartenInfo, setZeigeKartenInfo] = useState(false)
+
+  const handleKarteKlick = () => {
+    setZeigeKartenInfo(true) // Zeige die Kartenzahlungsinformationen
+  }
+
+  const handleClosePopup = () => {
+    setZeigeKartenInfo(false) // Schließe das Popup
+  }
 
 
   return (
@@ -141,9 +150,17 @@ function Home() {
       <div className='rechts'>
         {zeigeButtons && (
        <div className='zahlungsArten'>
-        <button className='karte'>Kartenzahlung</button>
+        <button className='karte'onClick={handleKarteKlick}>Kartenzahlung</button>
         <button className='bar'>Barzahlung</button>
         <button className='punkte'>Punktezahlung (Kundenkarte)</button>
+
+        {/* Das Popup wird nun über den Knöpfen angezeigt */}
+        {zeigeKartenInfo && (
+                  <div className='karteInfo'>
+                    <p>Bitte folgen Sie den Anweisungen auf dem Kartenlesegerät.</p>
+                    <button className='closePopup' onClick={handleClosePopup}>Schließen</button>
+                  </div>
+                )}
        </div>
        )}
       </div>
