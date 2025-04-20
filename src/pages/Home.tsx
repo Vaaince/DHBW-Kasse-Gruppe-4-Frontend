@@ -82,8 +82,8 @@ function Home() {
   const [zeigeButtons, setZeigeButtons] = useState(false);
 
   const handleKlick = () => {
-    setZeigeButtons(prev => !prev); // Toggle Sichtbarkeit
-
+    //setZeigeButtons(prev => !prev); // Toggle Sichtbarkeit
+    setZeigeButtons(true);
   };
 
   const [zeigeKartenInfo, setZeigeKartenInfo] = useState(false)
@@ -94,8 +94,20 @@ function Home() {
 
   const handleClosePopup = () => {
     setZeigeKartenInfo(false) // Schließe das Popup
+    setZeigePunkteInfo(false)
+    setZeigeBarInfo(false)
   }
 
+  const handleBarKlick = () => {
+    setZeigeBarInfo(true) // Zeige die Kartenzahlungsinformationen
+  }
+
+  const handlePunkteKlick = () => {
+    setZeigePunkteInfo(true) // Zeige die Kartenzahlungsinformationen
+  }
+
+  const [zeigeBarInfo, setZeigeBarInfo] = useState(false);
+  const [zeigePunkteInfo, setZeigePunkteInfo] = useState(false);
 
   return (
     <>
@@ -149,10 +161,14 @@ function Home() {
       </div>
       <div className='rechts'>
         {zeigeButtons && (
+
+      <div className='zahlungsArten-wrapper'>
+
        <div className='zahlungsArten'>
+        
         <button className='karte'onClick={handleKarteKlick}>Kartenzahlung</button>
-        <button className='bar'>Barzahlung</button>
-        <button className='punkte'>Punktezahlung (Kundenkarte)</button>
+        <button className='bar' onClick={handleBarKlick}>Barzahlung</button>
+        <button className='punkte' onClick={handlePunkteKlick}>Punktezahlung (Kundenkarte)</button>
 
         {/* Das Popup wird nun über den Knöpfen angezeigt */}
         {zeigeKartenInfo && (
@@ -161,6 +177,10 @@ function Home() {
                     <button className='closePopup' onClick={handleClosePopup}>Schließen</button>
                   </div>
                 )}
+       </div>
+      {!zeigeKartenInfo && (
+       <button className='abbrechen' onClick={()=> setZeigeButtons(false)}>Abbrechen</button>
+      )}
        </div>
        )}
       </div>

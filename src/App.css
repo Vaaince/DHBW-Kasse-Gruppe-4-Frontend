@@ -136,7 +136,7 @@
   border-radius: 20px;
     border: 1px solid grey;
     background-color: #e0e0e0;
-    font-size: 19px;
+    font-size: x-large;
     font-weight: bold;
     padding: 12px 45px;
     cursor: pointer;
@@ -195,7 +195,7 @@
   align-items: center;
   justify-content: space-between;
   display: flex;
-  width: 80%;
+  width: 100%;
 }
 
 .karte {
@@ -208,6 +208,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  color: black;
 }
 
 .karte:hover,.bar:hover,.punkte:hover {
@@ -226,6 +227,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  color: black;
 }
 
 .punkte {
@@ -238,10 +240,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  color: black;
 }
 
 .zahlungsArten {
   position: relative; /* Damit das Popup relativ zu den Buttons positioniert wird */
+  background-color: white;
 }
 
 .karteInfo {
@@ -276,4 +280,33 @@
   background-color: #839CC0;
   color: white;
   border-color: grey;
+}
+
+.zahlungsArten-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  background-color: white;
+}
+
+.abbrechen {
+  margin-top: 20px;
+  padding: 12px 45px;
+  border-radius: 20px;
+  background-color: #e0e0e0;
+  border: 1px solid grey;
+  font-size: 19px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  height: 10%;
+  color: black;
+  font-size: x-large;
+}
+
+.abbrechen:hover {
+  background-color: #839CC0;
+  border-color: grey;
+  color: white;
 }
