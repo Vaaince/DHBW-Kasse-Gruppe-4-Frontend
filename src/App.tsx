@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import { Route, Routes } from 'react-router-dom';
 import Brand from './pages/Brand';
 import BrandAdmin from './pages/BrandAdmin';
+import Calculator from './pages/Calculator';
 import { persistQueryClient } from 'react-query/persistQueryClient-experimental';
 import { createWebStoragePersistor } from 'react-query/createWebStoragePersistor-experimental';
 
@@ -32,6 +33,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/brands" element={<Brand />} />
           <Route path="/admin/brands" element={<BrandAdmin />} />
+          <Route path="/calculator" element={<Calculator />} />
         </Routes>
       </QueryClientProvider>
     </>

@@ -1,0 +1,75 @@
+.cash-container {
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+    color:black;
+  }
+  
+  h2 {
+    margin-bottom: 1rem;
+    text-align: center;
+    color:black;
+  }
+  
+  .eingabe {
+    margin-bottom: 1rem;
+  }
+  
+  .eingabe input {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    margin-top: 0.25rem;
+  }
+  
+  .gegeben-section {
+    margin-bottom: 1rem;
+    color:black;
+  }
+  
+  .geld-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  .geld-grid button {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+    border: none;
+    background-color: #4caf50;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .geld-grid button:hover {
+    background-color: #45a049;
+  }
+  
+  .rueckgeld-section ul {
+    margin-top: 0.5rem;
+    list-style: none;
+    padding-left: 0;
+    color:black;
+  }
+  
+  .reset-button {
+    margin-top: 1rem;
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #e0e0e0;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .reset-button:hover {
+    background-color: #ccc;
+  }
+  
