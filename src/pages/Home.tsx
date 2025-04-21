@@ -9,13 +9,6 @@ const warenListe = [
   { id: 3, name: 'Käse', preis: 4.99, anzahl: 2 },
   { id: 4, name: 'Brot', preis: 1.49, anzahl: 1 },
   { id: 5, name: 'Katzenfutter', preis: 10.00, anzahl: 1 },
-  /*{ id: 6, name: 'Flammenwerfer', preis: 100.49, anzahl: 4 },
-  { id: 7, name: 'Lederjacke', preis: 1000.49, anzahl: 1 },
-  { id: 1, name: 'Äpfel', preis: 2.99, anzahl: 5 },
-  { id: 2, name: 'Bananen', preis: 1.79, anzahl: 3 },
-  { id: 3, name: 'Käse', preis: 4.99, anzahl: 2 },
-  { id: 4, name: 'Brot', preis: 1.49, anzahl: 1 },
-  { id: 5, name: 'Katzenfutter', preis: 10.00, anzahl: 1 },
   { id: 6, name: 'Flammenwerfer', preis: 100.49, anzahl: 4 },
   { id: 7, name: 'Lederjacke', preis: 1000.49, anzahl: 1 },
   { id: 1, name: 'Äpfel', preis: 2.99, anzahl: 5 },
@@ -39,7 +32,14 @@ const warenListe = [
   { id: 5, name: 'Katzenfutter', preis: 10.00, anzahl: 1 },
   { id: 6, name: 'Flammenwerfer', preis: 100.49, anzahl: 4 },
   { id: 7, name: 'Lederjacke', preis: 1000.49, anzahl: 1 },
-  { id: 7, name: 'Lederjacke', preis: 1000.49, anzahl: 1 },*/
+  { id: 1, name: 'Äpfel', preis: 2.99, anzahl: 5 },
+  { id: 2, name: 'Bananen', preis: 1.79, anzahl: 3 },
+  { id: 3, name: 'Käse', preis: 4.99, anzahl: 2 },
+  { id: 4, name: 'Brot', preis: 1.49, anzahl: 1 },
+  { id: 5, name: 'Katzenfutter', preis: 10.00, anzahl: 1 },
+  { id: 6, name: 'Flammenwerfer', preis: 100.49, anzahl: 4 },
+  { id: 7, name: 'Lederjacke', preis: 1000.49, anzahl: 1 },
+  { id: 7, name: 'Lederjacke', preis: 1000.49, anzahl: 1 },
 ]
 
 const gesamtBetrag = warenListe.reduce((summe, item) => {
@@ -101,11 +101,11 @@ function Home() {
   }
 
   const handleBarKlick = () => {
-    setZeigeBarInfo(true) // Zeige die Kartenzahlungsinformationen
+    setZeigeBarInfo(true) // Zeige die Barzahlungsinformationen
   }
 
   const handlePunkteKlick = () => {
-    setZeigePunkteInfo(true) // Zeige die Kartenzahlungsinformationen
+    setZeigePunkteInfo(true) // Zeige die Punktezahlungsinformationen
   }
 
   const [zeigeBarInfo, setZeigeBarInfo] = useState(false);
@@ -185,9 +185,14 @@ function Home() {
             <button className='closePopup' onClick={handleClosePopup}>Schließen</button>
           </div>
         )}
-
+        {zeigePunkteInfo && (
+                  <div className='karteInfo'>
+                    <p>Bitte geben Sie die Pin ein.</p>
+                    <button className='closePopup' onClick={handleClosePopup}>Schließen</button>
+                  </div>
+                )}
        </div>
-      {!zeigeKartenInfo && !zeigeBarInfo && (
+      {!zeigeKartenInfo && !zeigeBarInfo && !zeigePunkteInfo && (
        <button className='abbrechen' onClick={()=> setZeigeButtons(false)}>Abbrechen</button>
       )}
       {zeigeBarInfo && (
