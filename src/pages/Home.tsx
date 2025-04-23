@@ -141,7 +141,7 @@ function Home() {
     <>
       <header className='header'>
         <div className="logo-container">
-          <img src="/Logo.png" alt="Logo" />
+          <img src="/Logo.PNG" alt="Logo" />
         </div>
         <h1 className='titel'>Supermarktkasse</h1>
         <h1 className='datumUhrzeit'>{datumUhrzeit}</h1>
@@ -149,6 +149,15 @@ function Home() {
 
       <div className='gesamt'>
         <div className='links'>
+        <input className='Suchfeld'
+              type="text"
+              value={barcodeInput}
+              onChange={(e) => setBarcodeInput(e.target.value)}
+              onKeyDown={(e) => {
+              if (e.key === 'Enter') produktHinzufuegen();
+              }}
+            placeholder="Barcode eingeben oder scannen..."
+            />
           <div className='waren-tabelle-wrapper'>
             <table className="waren-tabelle">
               <thead>
@@ -187,27 +196,9 @@ function Home() {
           <div className='knopf'>
             <button className='bezahlung' onClick={handleKlick}>Bezahlen</button>
             <div className="barcode-eingabe" style={{ marginTop: '1rem' }}>
-        <input
-              type="text"
-              value={barcodeInput}
-              onChange={(e) => setBarcodeInput(e.target.value)}
-              onKeyDown={(e) => {
-              if (e.key === 'Enter') produktHinzufuegen();
-              }}
-            placeholder="Barcode eingeben oder scannen..."
-            autoFocus
-            style={{
-              padding: '10px',
-              fontSize: '16px',
-              width: '300px',
-              borderRadius: '8px',
-              border: '1px solid #ccc'
-            }}
-          />
           </div>
           </div>
         </div>
-
         <div className='rechts'>
           {zeigeButtons && (
             <div className='zahlungsArten-wrapper'>
