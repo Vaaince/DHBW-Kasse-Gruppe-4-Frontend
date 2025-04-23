@@ -322,7 +322,6 @@
 }
 
 .Suchfeld:hover {
-  background-color: #839CC0;
-  border-color: grey;
-  color: white;
+  color: black;
+  background-color: #eeeeee;
 }
