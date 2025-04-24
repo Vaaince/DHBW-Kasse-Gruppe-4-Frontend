@@ -1,7 +1,9 @@
 import '../App.css'
-import './Calculator'
+import './Components/Calculator'
+import './Components/Clock'
+import Clock from './Components/Clock'
 import React, { useEffect, useState } from 'react'
-import Calculator from './Calculator'
+import Calculator from './Components/Calculator'
 import { fetchProducts } from '../services/api'
 import { fetchProduktByBarcode } from '../services/api';
 import { closeWarenkorb } from '../services/api'; 
@@ -10,20 +12,13 @@ import { addProduktToWarenkorb } from '../services/api';
 
 function Home() {
   const [warenListe, setWarenListe] = useState<any[]>([])
-  const [zeit, setZeit] = useState(new Date())
   const [anzahlLeererZeilen, setAnzahlLeererZeilen] = useState(0)
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setZeit(new Date())
-    }, 1000)
-    return () => clearInterval(timer)
-  }, [])
 
   useEffect(() => {
     fetchProducts()
-      .then(data => setWarenListe(data))
-      .catch(err => console.error("Fehler beim Laden der Produkte:", err))
+      .then((data: React.SetStateAction<any[]>) => setWarenListe(data))
+      .catch((err: any) => console.error("Fehler beim Laden der Produkte:", err))
   }, [])
 
   useEffect(() => {
@@ -98,19 +93,9 @@ function Home() {
 
   const gesamtBetrag = produkte.reduce((summe, item) => summe + item.price, 0);
 
-
-  const datumUhrzeit = zeit.toLocaleString('de-DE', {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit',
-  })
-
   const [zeigeButtons, setZeigeButtons] = useState(false)
   const handleKlick = () => setZeigeButtons(true)
+  const produkteLoeschen = () => setProdukte([])
 
   const [zeigeKartenInfo, setZeigeKartenInfo] = useState(false)
   const [zeigeBarInfo, setZeigeBarInfo] = useState(false)
@@ -141,10 +126,10 @@ function Home() {
     <>
       <header className='header'>
         <div className="logo-container">
-          <img src="/Logo.PNG" alt="Logo" />
+          <img src="/Logo.png" alt="Logo" />
         </div>
         <h1 className='titel'>Supermarktkasse</h1>
-        <h1 className='datumUhrzeit'>{datumUhrzeit}</h1>
+        <Clock/>
       </header>
 
       <div className='gesamt'>
@@ -194,6 +179,7 @@ function Home() {
             </table>
           </div>
           <div className='knopf'>
+            <button className='bezahlung' onClick={(produkteLoeschen)}>Abbrechen</button>
             <button className='bezahlung' onClick={handleKlick}>Bezahlen</button>
             <div className="barcode-eingabe" style={{ marginTop: '1rem' }}>
           </div>

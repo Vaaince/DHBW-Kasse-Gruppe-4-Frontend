@@ -4,7 +4,7 @@ import Home from './pages/Home'
 import { Route, Routes } from 'react-router-dom';
 import Brand from './pages/Brand';
 import BrandAdmin from './pages/BrandAdmin';
-import Calculator from './pages/Calculator';
+import Calculator from './pages/Components/Calculator';
 import { persistQueryClient } from 'react-query/persistQueryClient-experimental';
 import { createWebStoragePersistor } from 'react-query/createWebStoragePersistor-experimental';
 
