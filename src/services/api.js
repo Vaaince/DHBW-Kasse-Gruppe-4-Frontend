@@ -25,7 +25,7 @@ export async function addProduktToWarenkorb(barcode) {
       throw new Error(errorText || 'Fehler beim Hinzufügen des Produkts');
     }
 
-    return await response.text(); // oder .json() falls du JSON zurückgibst
+    return await response.text();
   } catch (error) {
     console.error('Fehler beim Hinzufügen zum Warenkorb:', error);
     throw error;

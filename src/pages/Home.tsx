@@ -53,7 +53,7 @@ function Home() {
   const [produkte, setProdukte] = useState<any[]>([]);
   const [barcodeInput, setBarcodeInput] = useState('');
   const handleBarcodeSubmit = async () => {
-    const cleanedBarcode = barcodeInput.trim(); // 🚫 entfernt \n, \r, Leerzeichen
+    const cleanedBarcode = barcodeInput.trim();
   
     if (!cleanedBarcode) return;
   
@@ -61,7 +61,7 @@ function Home() {
       console.log("Sende Barcode an API:", cleanedBarcode);
       const produkt = await fetchProduktByBarcode(cleanedBarcode);
       if (produkt) {
-        setProdukte(produkt); // ✅ Produkt gefunden
+        setProdukte(produkt);
       } else {
         console.log("Kein Produkt gefunden");
         setProdukte(null);
@@ -83,7 +83,7 @@ function Home() {
       const produkt = await fetchProduktByBarcode(cleanedBarcode);
       if (produkt) {
         setProdukte(prev => [...prev, produkt]);
-        await addProduktToWarenkorb(cleanedBarcode); // 🔥 HIER speicherst du im Backend!
+        await addProduktToWarenkorb(cleanedBarcode);
         setBarcodeInput('');
       } else {
         alert('Produkt nicht gefunden.');
@@ -126,11 +126,11 @@ function Home() {
     setZeigePunkteInfo(false)
   }
 
-  const handleKarteClick = async () => {
+  const handleBezahlung = async () => {
     try {
       const result = await closeWarenkorb();
       console.log("Warenkorb geschlossen:", result);
-      // optional: setze Zustand zurück oder leite weiter
+      setProdukte([]);
     } catch (err) {
       console.error("Fehler beim Schließen des Warenkorbs:", err);
     }
@@ -203,25 +203,28 @@ function Home() {
           {zeigeButtons && (
             <div className='zahlungsArten-wrapper'>
               <div className='zahlungsArten'>
-                <button className='karte' onClick={handleKarteClick}>Kartenzahlung</button>
+                <button className='karte' onClick={handleKarteKlick}>Kartenzahlung</button>
                 <button className='bar' onClick={handleBarKlick}>Barzahlung</button>
                 <button className='punkte' onClick={handlePunkteKlick}>Punktezahlung (Kundenkarte)</button>
 
                 {zeigeKartenInfo && (
                   <div className='karteInfo'>
                     <p>Bitte folgen Sie den Anweisungen auf dem Kartenlesegerät.</p>
+                    <button className='Bezahlung' onClick={handleBezahlung}>Bezahlen</button>
                     <button className='closePopup' onClick={handleClosePopup}>Schließen</button>
                   </div>
                 )}
                 {zeigeBarInfo && (
                   <div className='karteInfo'>
                     <p>Bitte das erhaltene Bargeld eintragen.</p>
+                    <button className='Bezahlung' onClick={handleBezahlung}>Bezahlen</button>
                     <button className='closePopup' onClick={handleClosePopup}>Schließen</button>
                   </div>
                 )}
                 {zeigePunkteInfo && (
                   <div className='karteInfo'>
                     <p>Bitte geben Sie die Pin ein.</p>
+                    <button className='Bezahlung' onClick={handleBezahlung}>Bezahlen</button>
                     <button className='closePopup' onClick={handleClosePopup}>Schließen</button>
                   </div>
                 )}

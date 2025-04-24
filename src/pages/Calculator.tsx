@@ -73,7 +73,6 @@ function Calculator({ betrag }: CalculatorProps) {
           </ul>
         )}
       </div>
-
       <button className="reset-button" onClick={reset}>
         Zurücksetzen
       </button>
